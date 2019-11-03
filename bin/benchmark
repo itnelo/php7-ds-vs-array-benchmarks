@@ -27,5 +27,7 @@ echo "Objects count: $timePointsCount" . PHP_EOL . PHP_EOL;
 $time = -microtime(true);
 $benchmark->run($timePoints);
 $time = round(($time + microtime(true)) * 1000, 5) . ' ms';
+//$memory = memory_get_usage() . ' bytes';
 
 echo $time . PHP_EOL;
+//echo $memory . PHP_EOL;

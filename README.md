@@ -43,6 +43,11 @@ Zend Engine v3.3.11, Copyright (c) 1998-2018 Zend Technologies
 ```
 
 ```
+$ php --re ds | head -1
+Extension [ <persistent> extension #35 ds version 1.2.9 ] {
+```
+
+```
 $ lscpu
 
 Architecture:          x86_64
