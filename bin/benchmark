@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+use PhpArrayVsDsBenchmarks\TimePoint;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$benchmarkName   = $argv[1] ?? 'PhpArray';
+$timePointsCount = $argv[2] ?? 10000;
+
+$timePoints               = [];
+$timePointsSpreadPositive = $timePointsCount * 0.7; // Распределение положительных статусов, %.
+
+for ($index = 0; $index < $timePointsCount; ++$index) {
+    $statusRandom    = -(($index - $timePointsSpreadPositive) >> (8 * PHP_INT_SIZE - 1));
+    $timestampRandom = mt_rand(1572771079, 1572871079);
+
+    $timePoints[] = new TimePoint($statusRandom, $timestampRandom);
+}
+
+$benchmarkClassName = "PhpArrayVsDsBenchmarks\\Benchmark\\$benchmarkName";
+$benchmark          = new $benchmarkClassName();
+
+echo "Running '$benchmarkClassName'" . PHP_EOL;
+echo "Objects count: $timePointsCount" . PHP_EOL . PHP_EOL;
+
+$time = -microtime(true);
+$benchmark->run($timePoints);
+$time = round(($time + microtime(true)) * 1000, 5) . ' ms';
+
+echo $time . PHP_EOL;

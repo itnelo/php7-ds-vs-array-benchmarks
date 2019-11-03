@@ -1,0 +1,11 @@
+{
+    "require": {
+        "php": ">=7.3",
+        "ext-ds": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpArrayVsDsBenchmarks\\": ["src/"]
+        }
+    }
+}
