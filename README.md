@@ -32,6 +32,8 @@ Objects count: 10000
 
 #### tested on
 
+php
+
 ```
 $ php -v
 
@@ -42,10 +44,23 @@ Zend Engine v3.3.11, Copyright (c) 1998-2018 Zend Technologies
     with Xdebug v2.7.2, Copyright (c) 2002-2019, by Derick Rethans
 ```
 
+ext version
+
 ```
 $ php --re ds | head -1
+
 Extension [ <persistent> extension #35 ds version 1.2.9 ] {
 ```
+
+polyfill version
+
+```
+$ composer show php-ds/php-ds | grep 'versions'
+
+versions : * v1.2.0
+```
+
+cpu
 
 ```
 $ lscpu
