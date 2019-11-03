@@ -37,7 +37,7 @@ class DsPriorityQueue
          * Running 'PhpArrayVsDsBenchmarks\Benchmark\DsPriorityQueue'
          * Objects count: 10000
          *
-         * 22.33315 ms
+         * 21.84916 ms
          */
     }
 }

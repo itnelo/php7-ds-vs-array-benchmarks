@@ -12,10 +12,10 @@ $timePoints               = [];
 $timePointsSpreadPositive = $timePointsCount * 0.7; // Распределение положительных статусов, %.
 
 for ($index = 0; $index < $timePointsCount; ++$index) {
-    $statusRandom    = -(($index - $timePointsSpreadPositive) >> (8 * PHP_INT_SIZE - 1));
+    $statusBySpread  = -(($index - $timePointsSpreadPositive) >> (8 * PHP_INT_SIZE - 1));
     $timestampRandom = mt_rand(1572771079, 1572871079);
 
-    $timePoints[] = new TimePoint($statusRandom, $timestampRandom);
+    $timePoints[] = new TimePoint($statusBySpread, $timestampRandom);
 }
 
 $benchmarkClassName = "PhpArrayVsDsBenchmarks\\Benchmark\\$benchmarkName";
